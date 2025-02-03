@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberStyle Web Development - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Reuse previous styles */
+    :root {
+      --neon-blue: #00f3ff;
+      --cyber-purple: #bc00dd;
+      --matrix-green: #00ff41;
+      --hacker-bg: #0a0a12;
+      --glow: 0 0 15px;
+      --gradient: linear-gradient(45deg, var(--cyber-purple), var(--neon-blue), var(--matrix-green));
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    body {
+      background: var(--hacker-bg);
+      color: var(--matrix-green);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Cyber Neon Navbar */
+    header {
+      background: rgba(10, 10, 18, 0.98);
+      backdrop-filter: blur(15px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--neon-blue);
+      box-shadow: var(--glow) rgba(0, 243, 255, 0.1);
+      padding: 1rem 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--matrix-green);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: all 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background: var(--gradient);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: var(--neon-blue);
+      text-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+    }
+/* Portfolio Section */
+.portfolio-section {
+  padding: 5rem 0;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 243, 255, 0.2);
+  margin-top: 100px;
+}
+
+.portfolio-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.portfolio-image {
+  flex: 1;
+  max-width: 25%;  /* Smaller image size */
+  background: rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 243, 255, 0.3);
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.portfolio-intro {
+  flex: 1;
+  max-width: 70%;  /* Adjusted to balance with smaller image */
+}
+
+.portfolio-intro h2 {
+  font-size: 2.5rem;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+}
+
+.portfolio-intro p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+    /* Cyber Glow Footer */
+    footer {
+      background: rgba(10, 10, 18, 0.98);
+      backdrop-filter: blur(15px);
+      border-top: 1px solid var(--neon-blue);
+      box-shadow: 0 -4px 30px rgba(0, 243, 255, 0.1);
+      padding: 4rem 0 2rem;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gradient);
+      animation: border-glow 3s infinite;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-section h3 {
+      color: var(--neon-blue);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .footer-section h3::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--matrix-green);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--matrix-green);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--neon-blue);
+      padding-left: 8px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-icon {
+      font-size: 1.5rem;
+      color: var(--matrix-green);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .social-icon:hover {
+      color: var(--neon-blue);
+      transform: translateY(-3px);
+      filter: drop-shadow(0 0 5px rgba(0, 243, 255, 0.5));
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(0, 243, 255, 0.2);
+    }
+
+    /* Scroll Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .portfolio-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .portfolio-image,
+      .portfolio-intro {
+        max-width: 100%;
+      }
+
+      .portfolio-intro h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="container">
+      <a href="#" class="logo">ZOHAIB KHATTAK</a>
+      <nav>
+        <ul>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="contact.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio-section">
+    <div class="container">
+      <div class="portfolio-content">
+        <div class="portfolio-image">
+          <img src="https://scontent.flhe42-1.fna.fbcdn.net/v/t39.30808-6/448309354_433100299633223_4235258466443414341_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=uHMS1YU7lmEQ7kNvgHvTBCD&_nc_oc=Adh79KpV2f8IdLv4CiiGAPNMXobaZlOj31GRsHp9S9ZHX5-VEoF3I9Xp7XRY6xm-Rjw&_nc_zt=23&_nc_ht=scontent.flhe42-1.fna&_nc_gid=ARR9kaI__-DAyBhhV47E-ud&oh=00_AYDYwC8uqzZa-1ItPMR8V-JgfmFzf5w0I5KDSBwtWIHv9Q&oe=67A67893" alt="Portfolio Image">
+        </div>
+        <div class="portfolio-intro">
+          <h2>Our Work</h2>
+          <p>We specialize in creating stunning digital experiences for fashion brands, from e-commerce platforms to unique custom web designs. Our approach focuses on user-centered design and seamless functionality, ensuring that your customers have an unforgettable experience while browsing and shopping on your site.</p>
+          <p>Explore our portfolio to see the projects we've completed for various clothing brands and e-commerce businesses.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Cyber Innovations</h3>
+          <p>Pushing the boundaries of digital experiences with cutting-edge web solutions.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="https://bluefery.com/collections/special-sale-2022?_gl=1*1p4qung*_up*MQ..&gclid=EAIaIQobChMI3K7sytKniwMVX59oCR2cKgpjEAAYASAAEgIZW_D_BwE">Projects</a></li>
+            <li><a href="#contact">Consultation</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <div class="social-links">
+            <a href="https://www.instagram.com/zohaibhayatkhattak_443/profilecard/?igsh=MTZ1eXdibzduZHRwaQ==" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1F8qCcJ4RM/" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.tiktok.com/@khattaksaga_443?_t=ZS-8tc0KokQAjf&_r=1" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/qr/NMCAWKQFJ6F4N1" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+          </div>
+          <p class="contact-email" style="margin-top: 1rem;">hayatzohaib443@gmail.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p style="font-family: Georgia, 'Times New Roman', Times, serif;">&copy; 2025 Zohaib Hayat Khattak, Digital Excellence</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll Reveal Animation
+    window.addEventListener('scroll', reveal);
+    function reveal() {
+      const reveals = document.querySelectorAll('.reveal');
+      for(let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const revealTop = reveals[i].getBoundingClientRect().top;
+        const revealPoint = 150;
+        
+        if(revealTop < windowHeight - revealPoint) {
+          reveals[i].classList.add('active');
+        }
+      }
+
+      // Progress Bar
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.querySelector('.progress-bar').style.width = scrolled + "%";
+    }
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+  <script>
+    // Smooth Scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+
+
